@@ -1,0 +1,109 @@
+{% extends 'base.html' %} {% load static %} {% block title %}| Marketplace {% endblock title %}
+{% block contents %}
+
+<section>
+    <div class="container">
+        <div class="browse_marketplace">
+            <h1>Browse Marketplace</h1>
+            <p>Browse through more than 50k NFTs on the NFT Marketplace.</p>
+            
+                <form class="marketplace_input" action="{% url 'marketplace' %}" method="get">
+                    <input type="text" placeholder="Search your favourite NFTs" name="search" value="{{ request.GET.search }}">
+                    <button class="search_button" type="submit"><img src="{% static 'assets/svg/search.svg' %}" alt="search"></button>
+                </form>
+            
+        </div>
+    </div>
+</section>
+
+<section class="section2">
+    <div class="container">
+        <div class="all_marketplace">
+            
+    
+        
+            <div class="tabs">
+
+                <input type="radio" id="tab1" name="tabs" checked>
+                <input type="radio" id="tab2" name="tabs" >
+
+                
+                <div class="tab-buttons">
+                    <label for="tab1">NFTs ({{ total_pictures }})</label>
+                    <label for="tab2">Collections</label>
+                </div>
+                
+                <div class="tab-contents">
+                    <div class="tab-content" id="content1">
+                        <div class="nft_products detail_page_pic">
+                            {% for picture in pictures %}
+                            <div class="picture">
+                              {% if picture.image %}
+                              <div class="product-images">
+                                <a href="{% url 'detail_page' picture.id %}"><img src="{{ picture.image.url }}" alt="{{ picture.name }}" /></a>
+                              </div>
+                              {% else %}
+                              <p>Нет изображения</p>
+                              {% endif %}
+                              <div class="product_info">
+                                <h3>{{ picture.name }}</h3>
+                    
+                                <div class="avatar">
+                                    {% if user.profile.avatar %}
+                                        <img class="avatar_img" src="{{ user.profile.avatar.url }}" alt="User Avatar">
+                                    {% else %}
+                                        <img class="avatar_img" src="{% static 'assets/svg/first_avatar.svg' %}" alt="Default Avatar">
+                                    {% endif %}
+                                  <p>{{ picture.user }}</p>
+                                </div>
+                    
+                                <div class="picture_price">
+                                  <div class="high_price">
+                                    <p>Price</p>
+                                    <span>{{ picture.price }} ETH</span>
+                                  </div>
+                                  <div class="high_price">
+                                    <p>Highest Bid</p>
+                                    <span>{{ picture.highest_bid }} ETH</span>
+                                  </div>
+                                </div>
+                    
+                              </div>       
+                              
+                            </div>
+                            {% empty %}
+                            <h3>No picture...</h3>
+                            {% endfor %}
+                          </div>
+                    </div>
+    
+                    <div class="tab-content" id="content2">
+                        <div class="nft_products">
+                            {% for collection in collections %}
+                                <div class="picture">
+                                    <div class="product-images">
+                                        <a href="{% url 'collection_detail' collection.id %}">
+                                            <img src="{{ collection.image.url }}" alt="{{ collection.name }}">
+                                        </a>
+                                    </div>
+                                    <h3>{{ collection.name }}</h3>
+                                </div>
+                            {% empty %}
+                                <h3>No collections available.</h3>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                
+                
+
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock contents %}

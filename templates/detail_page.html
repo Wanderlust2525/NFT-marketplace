@@ -1,0 +1,108 @@
+{% extends 'base.html' %} {% load static %} {% block title %}| NFT Page{% endblock title %}
+{% block contents %}
+<section>
+    <div class="product-images">
+        <img  src="{% static 'assets/png/nftpage.png'%}" alt="" />
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="detail_page_all">
+            <div class="detail_page_left">
+                <h2>{{picture.name}}</h2>
+                <span>{{picture.date}}</span>
+                <h3>Created By</h3>
+                <div class="avatar">
+                  {% if user.profile.avatar %}
+                      <img class="avatar_img" src="{{ user.profile.avatar.url }}" alt="User Avatar">
+                  {% else %}
+                      <img class="avatar_img" src="{% static 'assets/svg/first_avatar.svg' %}" alt="Default Avatar">
+                  {% endif %}
+                    <h4>{{picture.user}}</h4>
+                  </div>
+                
+                <h3>Description</h3>
+                <p>{{picture.description}}</p>
+                <h3>Details</h3>
+                <div class="details_icon">
+                    <img src="{% static 'assets/svg/www.svg'%}" alt="">
+                    <p>View on Etherscan</p>
+                </div>
+                <div class="details_icon">
+                    <img src="{% static 'assets/svg/www.svg'%}" alt="">
+                    <p>View on Etherscan</p>
+                </div>
+                <h3>Tags</h3>
+                <div class="all_tags">
+                    {% for tag in picture.tags.all %}
+                    <p class="detail_tags">{{ tag.name }}</p>
+                    {% endfor %}
+                </div>
+    
+            </div>
+            <div class="detail_page_right">
+                <img src="{{ picture.image.url }}" alt="{{ picture.name }}">
+                <button>Buy</button>
+            </div>
+        </div>
+        
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="detail_page_artist">
+            <div class="page_artist_head">
+                <h2>More from this artist</h2>
+                <div class="black_button">
+                    <img src="{% static 'assets/svg/right.svg' %}" alt="" />Go To Artist Page
+                </div>
+            </div>
+            <div class="detail_page_artist">
+
+
+                <div class="nft_products detail_page_pic">
+                    {% for picture in user_pictures %}
+                    <div class="picture">
+                      {% if picture.image %}
+                      <div class="product-images">
+                        <a href="{% url 'detail_page' picture.id %}"><img src="{{ picture.image.url }}" alt="{{ picture.name }}" /></a>
+                      </div>
+                      {% else %}
+                      <p>Нет изображения</p>
+                      {% endif %}
+                      <div class="product_info">
+                        <h3>{{ picture.name }}</h3>
+            
+                        <div class="avatar">
+                          {% if user.profile.avatar %}
+                              <img class="avatar_img" src="{{ user.profile.avatar.url }}" alt="User Avatar">
+                          {% else %}
+                              <img class="avatar_img" src="{% static 'assets/svg/first_avatar.svg' %}" alt="Default Avatar">
+                          {% endif %}
+                          <p>{{ picture.user }}</p>
+                        </div>
+            
+                        <div class="picture_price">
+                          <div class="high_price">
+                            <p>Price</p>
+                            <span>{{ picture.price }} ETH</span>
+                          </div>
+                          <div class="high_price">
+                            <p>Highest Bid</p>
+                            <span>{{ picture.highest_bid }} ETH</span>
+                          </div>
+                        </div>
+            
+                      </div>       
+                      
+                    </div>
+                    {% empty %}
+                    <h3>This owner has no other images.</h3>
+                    {% endfor %}
+                  </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock contents %}

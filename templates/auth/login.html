@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% load static %} {% block title %}| Create Account{% endblock title %}{% block contents %}
+<div class="create_account">
+    <div class="left_create_account">
+        <img src="{% static 'assets/png/account.png' %}" alt="Account Image" />
+    </div>
+    <div class="right_create_account">
+        <h1>Sign Up Account</h1>
+        <p>Welcome! Enter your details to start creating, collecting, and selling NFTs.</p>
+        <form action="{% url 'login' %}" method="POST" novalidate>
+            {% csrf_token %}
+            <div class="login-form">
+                <img src="{% static 'assets/svg/form_log.svg'%}" alt="">
+                {{ form.username }}            
+            </div>
+            <div class="login-form">
+                <img src="{% static 'assets/svg/password.svg'%}" alt="">
+                {{ form.password }}            
+            </div>
+            
+            <div>
+                <button type="submit" class="btn_account">Sing Up</button>
+            </div>
+
+            
+        </form>
+        <div class="sign_up">
+            <a href="{% url 'register' %}">register</a>
+            <a href="{% url 'login' %}">logout</a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock contents %}

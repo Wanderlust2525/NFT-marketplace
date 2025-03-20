@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+<h2>Профиль пользователя</h2>
+<form action="{% url 'avatar' %}" method="POST" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    {{ form}}
+    <button type="submit">Обновить профиль</button>
+</form>
+
+{% endblock %}

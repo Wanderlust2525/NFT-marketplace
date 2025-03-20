@@ -1,0 +1,306 @@
+{% extends 'base.html' %} {% load static %} {% block contents %}
+
+<section>
+  <div class="container">
+    <div class="first_section_left_right">
+      <div class="first_section_left">
+        <h1>Discover Digital Art & Collect NFTs</h1>
+        <p>
+          NFT Marketplace UI Created With Anima For Figma. Collect, Buy And Sell
+          Art From More Than 20k NFT Artists.
+        </p>
+        <div class="first_section_button">
+          <button>
+            <img
+              class="header_icons"
+              src="{% static 'assets/svg/get.svg'%}"
+              alt=""
+            />
+            <p>Get Started</p>
+          </button>
+        </div>
+        <div class="first_section_information">
+          <div class="number_text">
+            <h3>240k+</h3>
+            <p>Total Sale</p>
+          </div>
+          <div class="number_text">
+            <h3>100k+</h3>
+            <p>Auctions</p>
+          </div>
+          <div class="number_text">
+            <h3>240k+</h3>
+            <p>Artists</p>
+          </div>
+        </div>
+      </div>
+      <div class="first_section_right">
+        <img
+          class="first_section_img"
+          src="{% static 'assets/png/first_section.png'%}"
+          alt=""
+        />
+        <h3>Space Walking</h3>
+        <div class="avatar_name">
+          <img
+            class="first_section_avatar"
+            src="{% static 'assets/svg/first_avatar.svg'%}"
+            alt=""
+          />
+          <p>Animakid</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="trending_collection">
+      <h2>Trending Collection</h2>
+      <p>Checkout our weekly updated trending collection.</p>
+    </div>
+    <div class="tranding_collection_all">
+      <div class="collection_card">
+        <img src="{% static 'assets/png/1.png'%}" alt="" />
+        <div class="mini_collection_img">
+          <img src="{% static 'assets/png/2.png'%}" alt="" />
+          <img src="{% static 'assets/png/3.png'%}" alt="" />
+          <button>1025+</button>
+        </div>
+        <h3>DSGN Animals</h3>
+        <div class="avatar">
+          <img
+            class="avatar_img"
+            src="{% static 'assets/svg/first_avatar.svg'%}"
+            alt=""
+          />
+          <p>Animakid</p>
+        </div>
+      </div>
+      <div class="collection_card">
+        <img src="{% static 'assets/png/1.png'%}" alt="" />
+        <div class="mini_collection_img">
+          <img src="{% static 'assets/png/2.png'%}" alt="" />
+          <img src="{% static 'assets/png/3.png'%}" alt="" />
+          <button>1025+</button>
+        </div>
+        <h3>DSGN Animals</h3>
+        <div class="avatar">
+          <img
+            class="avatar_img"
+            src="{% static 'assets/svg/first_avatar.svg'%}"
+            alt=""
+          />
+          <p>Animakid</p>
+        </div>
+      </div>
+      <div class="collection_card">
+        <img src="{% static 'assets/png/1.png'%}" alt="" />
+        <div class="mini_collection_img">
+          <img src="{% static 'assets/png/2.png'%}" alt="" />
+          <img src="{% static 'assets/png/3.png'%}" alt="" />
+          <button>1025+</button>
+        </div>
+        <h3>DSGN Animals</h3>
+        <div class="avatar">
+          <img
+            class="avatar_img"
+            src="{% static 'assets/svg/first_avatar.svg'%}"
+            alt=""
+          />
+          <p>Animakid</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="top_creators">
+      <h2>Top creators</h2>
+      <div class="text_view_button">
+        <p>Checkout Top Rated Creators on the NFT Marketplace</p>
+        <div class="black_button">
+          <img src="{% static 'assets/svg/get2.svg'%}" alt="" />View Rankings
+        </div>
+      </div>
+
+      <div class="top_creators_card">
+        <div class="creator">
+          <p>1</p>
+          <img src="{% static 'assets/png/Avatar.png'%}" alt="" />
+          <h4>Keepitreal</h4>
+          <div class="total">
+            <p>Total Sales:</p>
+            <span>34.53 ETH</span>
+          </div>
+        </div>
+        <div class="creator">
+          <p>1</p>
+          <img src="{% static 'assets/png/Avatar.png'%}" alt="" />
+          <h4>Keepitreal</h4>
+          <div class="total">
+            <p>Total Sales:</p>
+            <span>34.53 ETH</span>
+          </div>
+        </div>
+        <div class="creator">
+          <p>1</p>
+          <img src="{% static 'assets/png/Avatar.png'%}" alt="" />
+          <h4>Keepitreal</h4>
+          <div class="total">
+            <p>Total Sales:</p>
+            <span>34.53 ETH</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Browse Categories</h2>
+    <div class="categories_card">
+      {% for category in categories %}
+      <div class="category">
+        {% if category.image %}
+        <div class="category-images">
+          <img
+            class="main-image"
+            src="{{ category.image.url }}"
+            alt="{{ category.name }}"
+          />
+          <img
+            class="icon"
+            src="{{ category.icon.url }}"
+            alt="{{ category.name }}"
+          />
+        </div>
+
+        {% else %}
+        <p>Нет изображения</p>
+        {% endif %}
+        <h3>{{ category.name }}</h3>
+      </div>
+      {% empty %}
+      <h3>No picture...</h3>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="nft_pictures">
+      <h2>Discover More NFTs</h2>
+
+      <div class="text_view_button">
+        <p>Explore new trending NFTs</p>
+        <div class="black_button">
+          <a href="#"><img src="{% static 'assets/svg/see.svg'%}" alt="" />See All</a>
+        </div>
+      </div>
+
+      <div class="nft_products">
+        {% for picture in pictures|slice:":3" %}
+        <div class="picture">
+          {% if picture.image %}
+          <div class="product-images">
+            <a href="{% url 'detail_page' picture.id %}"><img src="{{ picture.image.url }}" alt="{{ picture.name }}" /></a>
+          </div>
+          {% else %}
+          <p>Нет изображения</p>
+          {% endif %}
+          <div class="product_info">
+            <h3>{{ picture.name }}</h3>
+
+            <div class="avatar">
+              {% if user.profile.avatar %}
+                  <img class="avatar_img" src="{{ user.profile.avatar.url }}" alt="User Avatar">
+              {% else %}
+                  <img class="avatar_img" src="{% static 'assets/svg/first_avatar.svg' %}" alt="Default Avatar">
+              {% endif %}
+              <p>{{ picture.user }}</p>
+            </div>
+
+            <div class="picture_price">
+              <div class="high_price">
+                <p>Price</p>
+                <span>{{ picture.price }} ETH</span>
+              </div>
+              <div class="high_price">
+                <p>Highest Bid</p>
+                <span>{{ picture.highest_bid }} ETH</span>
+              </div>
+            </div>
+
+          </div>       
+          
+        </div>
+        {% empty %}
+        <h3>No picture...</h3>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="bg_picture">
+    <img class="bg-image" src="{% static 'assets/png/NFTbg.png'%}" alt="" />
+    <img class="over-image" src="{% static 'assets/png/NFTbg.png'%}" alt="" />
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="how_it_work">
+      <h2>How it works</h2>
+      <p>Find out how to get started</p>
+      <div class="works_info_card">
+
+        <div class="works_card">
+          <img src="{% static 'assets/svg/works.svg'%}" alt="" />
+          <h4>Setup Your wallet</h4>
+          <p>Set up your wallet of choice. Connect it to the Animarket by clicking the wallet icon in the top right corner.</p>
+        </div>
+        <div class="works_card">
+          <img src="{% static 'assets/svg/works.svg'%}" alt="" />
+          <h4>Create Collection</h4>
+          <p>Upload your work and setup your collection. Add a description, social links and floor price.</p>
+        </div>
+        <div class="works_card">
+          <img src="{% static 'assets/svg/works.svg'%}" alt="" />
+          <h4>Start Earning</h4>
+          <p>Choose between auctions and fixed-price listings. Start earning by selling your NFTs or trading others.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class='section_end'>
+  <div class="container">
+    <div class="subscribe_page">
+      <div class="subscribe_img">
+        <img src="{% static 'assets/png/Photo.png'%}" alt="" />
+      </div>
+      <div class="subscribe_text">
+        <h2>Join Our Weekly Digest</h2>
+        <p>Get Exclusive Promotions & Updates Straight To Your Inbox.</p>
+        <div class="sub_input">
+          <input type="text" placeholder='Enter your email here'>
+          <button>
+            <img src="{% static 'assets/svg/emil.svg'%}" alt="" />
+            <p>Subscribe</p>
+          </button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock contents %}

@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}| Create Picture{% endblock title %}
+
+{% block contents %}
+<section >
+    <div class="create_picture_form">
+        <div class="left_create_account">
+            <img src="{% static 'assets/png/account.png' %}" alt="Account Image" class="account-image"/>
+        </div>
+        <div class="create_picture">
+            <h2>Create Picture</h2>
+            <form action="{% url 'update_picture' id=picture.id %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    {{ form.name }}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.image }}
+                    {% if form.image.errors %}
+                        <ul class="error-list">
+                            {% for error in form.image.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.description }}
+                    {% if form.description.errors %}
+                        <ul class="error-list">
+                            {% for error in form.description.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.category }}
+                    {% if form.category.errors %}
+                        <ul class="error-list">
+                            {% for error in form.category.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.tags }}
+                    {% if form.tags.errors %}
+                        <ul class="error-list">
+                            {% for error in form.tags.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.price }}
+                    {% if form.price.errors %}
+                        <ul class="error-list">
+                            {% for error in form.price.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.highest_bid }}
+                    {% if form.highest_bid.errors %}
+                        <ul class="error-list">
+                            {% for error in form.highest_bid.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.is_published }}
+                    <label for="">Publish</label>
+                    {% if form.is_published.errors %}
+                        <ul class="error-list">
+                            {% for error in form.is_published.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+
+                <div >
+                    <button class="btn_account" type="submit" class="submit-btn">Update</button>
+                </div>
+
+                
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

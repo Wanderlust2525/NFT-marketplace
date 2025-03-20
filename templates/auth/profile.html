@@ -1,0 +1,149 @@
+    {% extends 'base.html' %} {% load static %} {% block title %}| Artist Page{% endblock title %}
+    {% block contents %}
+
+        <section>
+            <div class="profile_bg">
+                <img class="avatar_bg" src="{% static 'assets/png/profile_bg.png' %}" alt="">
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <a href="{% url 'avatar' %}">
+                    {% if user.profile.avatar %}
+                        <img class="profile_avatar" src="{{ user.profile.avatar.url }}" alt="Avatar">
+                    {% else %}
+                        <img class="profile_avatar" src="{% static 'assets/png/Avatar.png' %}" alt="Default Avatar">
+                    {% endif %}
+                </a>
+                <div class="profile_info">
+                    
+                    <div class="left_info">
+                        <h2>{{user}}</h2>
+                        <div class="count_info">
+                            <div class="followers">
+                                <h3>250k+</h3>
+                                <p>Volume</p>
+                            </div>
+                            <div class="followers">
+                                <h3>50+</h3>
+                                <p>NFTs Sold</p>
+                            </div>
+                            <div class="followers">
+                                <h3>3000k+</h3>
+                                <p>Followers</p>
+                            </div>
+                        </div>
+                        <h4>Bio</h4>
+                        <p>The internet's friendliest designer kid.</p>
+                        <h4>Links</h4>
+                        <div class="links">
+                            <img src="{% static 'assets/svg/discord.svg' %}" alt="">
+                            <img src="{% static 'assets/svg/youtube.svg' %}" alt="">
+                            <img src="{% static 'assets/svg/twitter.svg' %}" alt="">
+                            <img src="{% static 'assets/svg/instagram.svg' %}" alt="">
+                            
+                        </div>
+                    </div>
+                    <div class="right_info_card">
+                        <div class="balance_card" style="background: url('{% static "assets/png/visa.png" %}') no-repeat center center / cover; ">
+                            <h3>Balance: </h3>
+                        </div>
+                        <div class="right_info">                        
+                            <div class="balance_button">
+                                <button> + Balance</button>
+                            </div>
+                            <div class="create_button">
+                                <a href="{% url 'create_picture' %}"><button> + Follow</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section_prof">
+            <div class="container">
+                <div class="created_collection">
+                    <div class="custom-tabs">
+                        <!-- Радиокнопки для управления вкладками -->
+                        <input type="radio" id="section1" name="tab-selection" checked>
+                        <input type="radio" id="section2" name="tab-selection">
+                        <input type="radio" id="section3" name="tab-selection">
+                
+                        <!-- Кнопки вкладок -->
+                        <div class="custom-tab-buttons">
+                            <label for="section1" class="custom-tab-btn">Created({{ total_pictures }})</label>
+                            <label for="section2" class="custom-tab-btn">Owned</label>
+                            <label for="section3" class="custom-tab-btn">Collection</label>
+                        </div>
+                
+                        <!-- Содержимое вкладок -->
+                        <div class="custom-tab-contents">
+                            <div class="custom-tab-content" id="contentA">
+                                <div class="nft_products detail_page_pic">
+                                    {% for picture in user_pictures %}
+                                    <div class="picture">
+                                    {% if picture.image %}
+                                    <div class="product-images">
+                                        <a href="{% url 'detail_page' picture.id %}"><img src="{{ picture.image.url }}" alt="{{ picture.name }}" /></a>
+                                    </div>
+                                    {% else %}
+                                    <p>Нет изображения</p>
+                                    {% endif %}
+                                    <div class="product_info">
+                                        <div class="name_icons">
+                                            <h3>{{ picture.name }}</h3>
+                                            <div class="update_delete_icons">
+                                                <a href="{% url 'update_picture' id=picture.id %}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                <a href="{% url 'delete_picture' id=picture.id %}"><i class="fa-solid fa-trash-can"></i></a>
+
+                                                
+                                            </div>
+                                        </div>
+                            
+                                        <div class="avatar">
+                                        {% if user.profile.avatar %}
+                                            <img class="avatar_img" src="{{ user.profile.avatar.url }}" alt="User Avatar">
+                                        {% else %}
+                                            <img class="avatar_img" src="{% static 'assets/svg/first_avatar.svg' %}" alt="Default Avatar">
+                                        {% endif %}
+                                        <p>{{ picture.user }}</p>
+                                        </div>
+                            
+                                        <div class="picture_price">
+                                        <div class="high_price">
+                                            <p>Price</p>
+                                            <span>{{ picture.price }} ETH</span>
+                                        </div>
+                                        <div class="high_price">
+                                            <p>Highest Bid</p>
+                                            <span>{{ picture.highest_bid }} ETH</span>
+                                        </div>
+                                        </div>
+                            
+                                    </div>       
+                                    
+                                    </div>
+                                    {% empty %}
+                                    <h3>This owner has no other images.</h3>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="custom-tab-content" id="contentB">
+                                <h2>🏛 Galleries</h2>
+                                <p>Discover curated NFT galleries.</p>
+                            </div>
+                            <div class="custom-tab-content" id="contentC">
+                                <h2>🔥 Trending</h2>
+                                <p>Top trending NFT projects.</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </section>
+
+
+
+    {% endblock contents %}

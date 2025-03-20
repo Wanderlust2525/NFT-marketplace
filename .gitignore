@@ -1,0 +1,9 @@
+media/
+venv
+__pychache__
+migrations
+db.sqlite3
+.idea
+.DS_Store
+.vs_code
+static/static_dirs/assets
