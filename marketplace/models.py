@@ -42,8 +42,8 @@ class Picture(TimeStampAbstractModel):
     description = models.CharField('Описание', max_length=255)
     image = models.ImageField(verbose_name='Изображение', upload_to='media/',null=True, blank=True)
     tags = models.ManyToManyField('marketplace.Tag', verbose_name='теги')
-    price = models.DecimalField('цена', max_digits=10, decimal_places=2, default=0.0)
-    highest_bid = models.DecimalField('цена', max_digits=10, decimal_places=2, default=0.0)
+    price = models.DecimalField('цена', max_digits=10, decimal_places=2, default=0)
+    highest_bid = models.DecimalField('цена', max_digits=10, decimal_places=2, default=0)
     date = models.DateTimeField(verbose_name='Дата публикации', auto_now_add=True)
     last_update = models.DateTimeField(verbose_name='Дата изменении', auto_now=True)
     rating = models.DecimalField('Рейтинг', max_digits=2, decimal_places=1,

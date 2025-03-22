@@ -7,16 +7,16 @@
             </div>
         </section>
         <section>
-            <div class="container">
+            <div class="container">  
                 <a href="{% url 'avatar' %}">
                     {% if user.profile.avatar %}
                         <img class="profile_avatar" src="{{ user.profile.avatar.url }}" alt="Avatar">
                     {% else %}
                         <img class="profile_avatar" src="{% static 'assets/png/Avatar.png' %}" alt="Default Avatar">
                     {% endif %}
-                </a>
+                </a>              
                 <div class="profile_info">
-                    
+                                       
                     <div class="left_info">
                         <h2>{{user}}</h2>
                         <div class="count_info">
@@ -46,12 +46,27 @@
                     </div>
                     <div class="right_info_card">
                         <div class="balance_card" style="background: url('{% static "assets/png/visa.png" %}') no-repeat center center / cover; ">
-                            <h3>Balance: </h3>
+                            <h3>Balance: {{ user.profile.balance }}</h3>
                         </div>
                         <div class="right_info">                        
                             <div class="balance_button">
-                                <button> + Balance</button>
+                                <input type="checkbox" id="modal-toggle" hidden>
+                                <button><label for="modal-toggle" class="modal-button">+ Balance</label></button>                              
+                                                                
+                                <div class="modal">
+                                    <div class="modal-content">
+                                        <form method="POST" action="{% url 'add_balance' %}">
+                                            {% csrf_token %}
+                                            <label for="modal-toggle" class="close">&times;</label>
+                                            <input type="number" class="balance_input" name="amount" placeholder="Enter amount" step="any" required>
+                                            <button type="submit">Add</button>
+                                        </form>
+                            
+                                        
+                                    </div>
+                                </div>
                             </div>
+                        
                             <div class="create_button">
                                 <a href="{% url 'create_picture' %}"><button> + Follow</button></a>
                             </div>

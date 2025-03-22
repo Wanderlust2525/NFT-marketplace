@@ -41,7 +41,8 @@
                   <button>
                     <img class="header_icons" src="{% static 'assets/svg/sign.svg'%}" alt="" /> 
                     {% if request.user.is_authenticated %}
-                       <p>/ {{ request.user.username }} /</p>
+                    <a href="{% url 'profile' %}"><p>/ {{ request.user.username }} /</p></a>
+                       
                        <a href="{% url 'logout' %}"><p>Logout</p></a> 
                     {% else %}                       
                         <a href="{% url 'login' %}"><p>Sign Up</p></a> 

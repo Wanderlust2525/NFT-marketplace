@@ -119,8 +119,13 @@ def create(request):
 
         if form.is_valid():
             picture = form.save(commit=False)
-            picture.user = request.user 
-            if not picture.rating:  # Если рейтинг не был указан, установим значение по умолчанию
+            try:
+                picture.user = UserProfile.objects.get(user=request.user)  
+            except UserProfile.DoesNotExist:
+                messages.error(request, "Ошибка: У пользователя нет профиля.")
+                return redirect('/profile/')
+            
+            if not picture.rating:  #  рейтинг по умолчанию
                 picture.rating = 3.0
             picture.save()
             messages.success(request, f'The picture "{picture.name}" was created successfully.')

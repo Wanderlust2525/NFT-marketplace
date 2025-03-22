@@ -42,7 +42,10 @@
             </div>
             <div class="detail_page_right">
                 <img src="{{ picture.image.url }}" alt="{{ picture.name }}">
-                <button>Buy</button>
+                <form method="POST" action="{% url 'buy_picture' picture.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Buy {{picture.price}}</button>
+                </form>
             </div>
         </div>
         

@@ -1,6 +1,8 @@
 import os
-from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, render, redirect
 
+from marketplace.models import Picture
 from users.forms import UserProfileForm
 
 from users.models import UserProfile
@@ -27,5 +29,36 @@ def avatar (request):
 
     return render(request, 'auth/avatar.html', {'form': form})
 
+
+@login_required
+def add_balance(request):
+    if request.method == 'POST':
+        amount = request.POST.get('amount', 0)  
+        
+        try:
+            amount = float(amount)
+
+            if amount > 0:
+                profile = request.user.profile
+                profile.add_balance(amount)
+                return redirect('profile')  
+            else:
+                return HttpResponse('Amount must be greater than zero', status=400)
+        except ValueError:
+            return HttpResponse('Invalid amount', status=400)
+    return render(request, 'auth/profile.html')
+
+
+@login_required
+def buy_picture(request, id=id):
+    picture = get_object_or_404(Picture, id=id)
+    profile = request.user.profile  
+    
+    success = profile.buy_picture(picture)
+    
+    if success:
+        return redirect('profile')  
+    else:
+        return HttpResponse("Недостаточно средств для покупки.", status=400)
 
 # Create your views here.
