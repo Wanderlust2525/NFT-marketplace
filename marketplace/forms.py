@@ -62,16 +62,15 @@ class RegisterForm(forms.ModelForm):
             'email': forms.EmailInput(attrs={'class': 'login-form'}),
         }
 
-        def clean(self):
-            if self.is_valid():
+    def clean(self):
+        cleaned_data = super().clean()
+        password1 = cleaned_data.get("password1")
+        password2 = cleaned_data.get("password2")
 
-                password1 = self.cleaned_data.get('password1')
-                password2 = self.cleaned_data.get('password2')
+        if password1 and password2 and password1 != password2:
+            self.add_error("password2", "The passwords do not match")
 
-                if password1 != password2:
-                    raise forms.ValidationError({'password2': ['The passwords do not match']})
-
-            return self.cleaned_data
+        return cleaned_data
 
 
     

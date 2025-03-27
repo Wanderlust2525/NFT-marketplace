@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% load static %} {% block title %}| NFT Page{% endblock title %}
 {% block contents %}
 <section>
-    <div class="product-images">
+    <div class="fullscreen-image">
         <img  src="{% static 'assets/png/nftpage.png'%}" alt="" />
     </div>
 </section>
@@ -40,6 +40,7 @@
                 </div>
     
             </div>
+            
             <div class="detail_page_right">
                 <img src="{{ picture.image.url }}" alt="{{ picture.name }}">
                 <form method="POST" action="{% url 'buy_picture' picture.id %}">
@@ -103,6 +104,7 @@
                     <h3>This owner has no other images.</h3>
                     {% endfor %}
                   </div>
+                  {% include 'components/pagination.html' %}
         </div>
     </div>
 </section>

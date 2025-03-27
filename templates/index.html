@@ -16,7 +16,7 @@
               src="{% static 'assets/svg/get.svg'%}"
               alt=""
             />
-            <p>Get Started</p>
+            <a href="{% url 'marketplace' %}"><p>Get Started</p></a>
           </button>
         </div>
         <div class="first_section_information">
@@ -123,38 +123,48 @@
       <div class="text_view_button">
         <p>Checkout Top Rated Creators on the NFT Marketplace</p>
         <div class="black_button">
-          <img src="{% static 'assets/svg/get2.svg'%}" alt="" />View Rankings
+          <a href="{% url 'rankings' %}"><img src="{% static 'assets/svg/get2.svg'%}" alt="" />View Rankings</a>
         </div>
       </div>
 
       <div class="top_creators_card">
+        {% for user in total_pictures %}
         <div class="creator">
-          <p>1</p>
-          <img src="{% static 'assets/png/Avatar.png'%}" alt="" />
-          <h4>Keepitreal</h4>
-          <div class="total">
-            <p>Total Sales:</p>
-            <span>34.53 ETH</span>
-          </div>
+          
+            <div class="forloop_avatar">
+              <div class="forloop">
+                <p>{{ forloop.counter }}</p>
+              </div>
+              <div class="avatar">
+                {% if user.avatar %}
+                <img
+                  src="{{ user.avatar.url }}"
+                  alt="Avatar"
+                  class="creator_img"
+                />
+                {% else %}
+                <img
+                  src="{% static 'assets/png/empty.png'%}"
+                  alt="Avatar"
+                  class="creator_img"
+                />
+                {% endif %}
+              </div>
+            </div>
+
+            <div class="user_list">
+              <p>{{ user }}</p>
+            </div>
+          
+         
+            
+            <div class="total">
+              <p>Total Sales:</p>
+              <span>34.53 ETH</span>
+            </div>
+          
         </div>
-        <div class="creator">
-          <p>1</p>
-          <img src="{% static 'assets/png/Avatar.png'%}" alt="" />
-          <h4>Keepitreal</h4>
-          <div class="total">
-            <p>Total Sales:</p>
-            <span>34.53 ETH</span>
-          </div>
-        </div>
-        <div class="creator">
-          <p>1</p>
-          <img src="{% static 'assets/png/Avatar.png'%}" alt="" />
-          <h4>Keepitreal</h4>
-          <div class="total">
-            <p>Total Sales:</p>
-            <span>34.53 ETH</span>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -200,49 +210,59 @@
       <div class="text_view_button">
         <p>Explore new trending NFTs</p>
         <div class="black_button">
-          <a href="#"><img src="{% static 'assets/svg/see.svg'%}" alt="" />See All</a>
+          <a href="{% url 'marketplace' %}"
+            ><img src="{% static 'assets/svg/see.svg'%}" alt="" />See All</a
+          >
         </div>
       </div>
 
       <div class="nft_products">
-        {% for picture in pictures|slice:":3" %}
-        <div class="picture">
-          {% if picture.image %}
-          <div class="product-images">
-            <a href="{% url 'detail_page' picture.id %}"><img src="{{ picture.image.url }}" alt="{{ picture.name }}" /></a>
+          {% for picture in pictures|slice:":3" %}
+          <div class="picture">
+            {% if picture.image %}
+            <div class="product-images">
+              <a href="{% url 'detail_page' picture.id %}"
+                ><img src="{{ picture.image.url }}" alt="{{ picture.name }}"
+              /></a>
+            </div>
+            {% else %}
+            <p>Нет изображения</p>
+            {% endif %}
+            <div class="product_info">
+              <h3>{{ picture.name }}</h3>
+
+              <div class="avatar">
+                {% if user.profile.avatar %}
+                <img
+                  class="avatar_img"
+                  src="{{ user.profile.avatar.url }}"
+                  alt="User Avatar"
+                />
+                {% else %}
+                <img
+                  class="avatar_img"
+                  src="{% static 'assets/svg/first_avatar.svg' %}"
+                  alt="Default Avatar"
+                />
+                {% endif %}
+                <p>{{ picture.user }}</p>
+              </div>
+
+              <div class="picture_price">
+                <div class="high_price">
+                  <p>Price</p>
+                  <span>{{ picture.price }} ETH</span>
+                </div>
+                <div class="high_price">
+                  <p>Highest Bid</p>
+                  <span>{{ picture.highest_bid }} ETH</span>
+                </div>
+              </div>
+            </div>
           </div>
-          {% else %}
-          <p>Нет изображения</p>
-          {% endif %}
-          <div class="product_info">
-            <h3>{{ picture.name }}</h3>
-
-            <div class="avatar">
-              {% if user.profile.avatar %}
-                  <img class="avatar_img" src="{{ user.profile.avatar.url }}" alt="User Avatar">
-              {% else %}
-                  <img class="avatar_img" src="{% static 'assets/svg/first_avatar.svg' %}" alt="Default Avatar">
-              {% endif %}
-              <p>{{ picture.user }}</p>
-            </div>
-
-            <div class="picture_price">
-              <div class="high_price">
-                <p>Price</p>
-                <span>{{ picture.price }} ETH</span>
-              </div>
-              <div class="high_price">
-                <p>Highest Bid</p>
-                <span>{{ picture.highest_bid }} ETH</span>
-              </div>
-            </div>
-
-          </div>       
-          
-        </div>
-        {% empty %}
-        <h3>No picture...</h3>
-        {% endfor %}
+          {% empty %}
+          <h3>No picture...</h3>
+          {% endfor %}
       </div>
     </div>
   </div>
@@ -260,29 +280,43 @@
       <h2>How it works</h2>
       <p>Find out how to get started</p>
       <div class="works_info_card">
-
         <div class="works_card">
           <img src="{% static 'assets/svg/works.svg'%}" alt="" />
-          <h4>Setup Your wallet</h4>
-          <p>Set up your wallet of choice. Connect it to the Animarket by clicking the wallet icon in the top right corner.</p>
+          <div class="word_cards_text">
+            <h4>Setup Your wallet</h4>
+          <p>
+            Set up your wallet of choice. Connect it to the Animarket by
+            clicking the wallet icon in the top right corner.
+          </p>
+          </div>
         </div>
         <div class="works_card">
           <img src="{% static 'assets/svg/works.svg'%}" alt="" />
-          <h4>Create Collection</h4>
-          <p>Upload your work and setup your collection. Add a description, social links and floor price.</p>
+          <div class="word_cards_text">
+            <h4>Create Collection</h4>
+          <p>
+            Upload your work and setup your collection. Add a description,
+            social links and floor price.
+          </p>
+          </div>
+          
         </div>
         <div class="works_card">
           <img src="{% static 'assets/svg/works.svg'%}" alt="" />
-          <h4>Start Earning</h4>
-          <p>Choose between auctions and fixed-price listings. Start earning by selling your NFTs or trading others.</p>
+          <div class="word_cards_text">
+            <h4>Start Earning</h4>
+          <p>
+            Choose between auctions and fixed-price listings. Start earning by
+            selling your NFTs or trading others.
+          </p>
+          </div>
+          
         </div>
-
       </div>
-
     </div>
   </div>
 </section>
-<section class='section_end'>
+<section class="section_end">
   <div class="container">
     <div class="subscribe_page">
       <div class="subscribe_img">
@@ -292,13 +326,12 @@
         <h2>Join Our Weekly Digest</h2>
         <p>Get Exclusive Promotions & Updates Straight To Your Inbox.</p>
         <div class="sub_input">
-          <input type="text" placeholder='Enter your email here'>
+          <input type="text" placeholder="Enter your email here" />
           <button>
             <img src="{% static 'assets/svg/emil.svg'%}" alt="" />
             <p>Subscribe</p>
           </button>
         </div>
-        
       </div>
     </div>
   </div>

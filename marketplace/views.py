@@ -3,24 +3,32 @@ from django.urls import reverse
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
-from marketplace.decorators import login_required
+from marketplace.decorators import is_owner, login_required
 from marketplace.forms import  LoginForm, PictureForm, RegisterForm
-from marketplace.models import Category, Picture, Tag
+from marketplace.models import Category, Picture
 from users.models import UserProfile
+from django.db.models import Count
+from django.core.paginator import Paginator
 
 def main(request):
     pictures =Picture.objects.all()
     categories = Category.objects.all() 
+    total_pictures = UserProfile.objects.annotate(total_products=Count('picture'))
     
-    return render(request, 'index.html',{ 'pictures':pictures,'categories': categories})
+    return render(request, 'index.html',{ 'pictures':pictures,'categories': categories, 'total_pictures':total_pictures})
 
 
 def detail_page (request,id):
+    pictures =Picture.objects.all()
     picture = get_object_or_404(Picture, id=id)    
     user_pictures = Picture.objects.filter(user=picture.user).exclude(id=id).order_by('-date')
-    categories = Category.objects.all()     
+    categories = Category.objects.all()    
+
+    page = request.GET.get('page', 1) 
+    pagin = Paginator(pictures, 9)
+    pictures = pagin.get_page(page) 
    
-    return render(request, 'detail_page.html', { 'picture':picture,'user_pictures':user_pictures,'categories':categories})
+    return render(request, 'detail_page.html', { 'picture':picture,'user_pictures':user_pictures,'categories':categories, 'pictures':pictures})
 
 def marketplace(request):
     # pictures =Picture.objects.all()
@@ -34,6 +42,12 @@ def marketplace(request):
     search = request.GET.get('search')
     if search is not None:
         pictures = pictures.filter(name__icontains=search)
+
+    
+
+    page = request.GET.get('page', 1) or 1
+    pagin = Paginator(pictures, 12)
+    pictures = pagin.get_page(page)
 
 
     return render(request, 'marketplace.html',{ 'pictures':pictures,'categories': categories, 'total_pictures':total_pictures})
@@ -82,8 +96,8 @@ def register(request):
             user.save()
 
             login(request, user)
-            messages.success(request, f'Welcome to marketplace "{user.get_full_name()}"')
-            return redirect(reverse('profile'))
+            messages.success(request, f'Welcome to marketplace "{user.username}"')
+            return redirect(reverse('main'))
 
     return render(request, 'auth/register.html', {'form': form})
 
@@ -94,23 +108,30 @@ def logout_profile(request):
 
     return redirect('/')
 
-def profile(request):
-    picture = Picture.objects.all()    
+def profile(request):    
     user_pictures = Picture.objects.filter(user=request.user.profile).order_by('-date')
     total_pictures = Picture.objects.filter(user=request.user.profile).count()
+
+    page = request.GET.get('page', 1) or 1
+    pagin = Paginator(user_pictures, 9)
+    user_pictures = pagin.get_page(page)
     
-    return render (request,'auth/profile.html',{'picture':picture,'total_pictures':total_pictures,'user_pictures':user_pictures} )
+    return render (request,'auth/profile.html',{'total_pictures':total_pictures,'user_pictures':user_pictures} )
 
-def upload_picture(request):
-    if request.method == 'POST':
-        form = PictureForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('profile')  # Здесь укажите правильный редирект
-    else:
-        form = PictureForm()
-    return render(request, 'auth/upload_picture.html', {'form': form})
 
+# @login_required()
+# @is_owner
+# def upload_picture(request):
+#     if request.method == 'POST':
+#         form = PictureForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('profile')  
+#     else:
+#         form = PictureForm()
+#     return render(request, 'auth/upload_picture.html', {'form': form})
+
+@login_required()
 def create(request):
     form = PictureForm()
 
@@ -125,7 +146,7 @@ def create(request):
                 messages.error(request, "Ошибка: У пользователя нет профиля.")
                 return redirect('/profile/')
             
-            if not picture.rating:  #  рейтинг по умолчанию
+            if not picture.rating:  
                 picture.rating = 3.0
             picture.save()
             messages.success(request, f'The picture "{picture.name}" was created successfully.')
@@ -136,6 +157,7 @@ def create(request):
     return render(request, 'picture_create.html', {'form': form})
 
 
+@login_required()
 
 def update(request, id):
     picture = get_object_or_404(Picture, id=id)
@@ -153,9 +175,12 @@ def update(request, id):
 
     return render(request, 'picture_update.html', {'form': form, 'picture': picture})
 
-
+@login_required()
+@is_owner
 def delete(request, id):
     picture = get_object_or_404(Picture, id=id)
     picture.delete()
     messages.success(request, f'The picture "{picture.name}" was deleted successfully.')
     return redirect('/profile/')
+
+

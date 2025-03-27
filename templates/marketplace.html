@@ -19,87 +19,75 @@
 <section class="section2">
     <div class="container">
         <div class="all_marketplace">
+            <div class="created_collection">
+                <div class="custom-tabs">
+                    <!-- Радиокнопки для управления вкладками -->
+                    <input type="radio" id="section1" name="tab-selection" checked>
+                    <input type="radio" id="section2" name="tab-selection">
+                    <input type="radio" id="section3" name="tab-selection">
             
-    
-        
-            <div class="tabs">
-
-                <input type="radio" id="tab1" name="tabs" checked>
-                <input type="radio" id="tab2" name="tabs" >
-
-                
-                <div class="tab-buttons">
-                    <label for="tab1">NFTs ({{ total_pictures }})</label>
-                    <label for="tab2">Collections</label>
-                </div>
-                
-                <div class="tab-contents">
-                    <div class="tab-content" id="content1">
-                        <div class="nft_products detail_page_pic">
-                            {% for picture in pictures %}
-                            <div class="picture">
-                              {% if picture.image %}
-                              <div class="product-images">
-                                <a href="{% url 'detail_page' picture.id %}"><img src="{{ picture.image.url }}" alt="{{ picture.name }}" /></a>
-                              </div>
-                              {% else %}
-                              <p>Нет изображения</p>
-                              {% endif %}
-                              <div class="product_info">
-                                <h3>{{ picture.name }}</h3>
-                    
-                                <div class="avatar">
-                                    {% if user.profile.avatar %}
-                                        <img class="avatar_img" src="{{ user.profile.avatar.url }}" alt="User Avatar">
-                                    {% else %}
-                                        <img class="avatar_img" src="{% static 'assets/svg/first_avatar.svg' %}" alt="Default Avatar">
-                                    {% endif %}
-                                  <p>{{ picture.user }}</p>
-                                </div>
-                    
-                                <div class="picture_price">
-                                  <div class="high_price">
-                                    <p>Price</p>
-                                    <span>{{ picture.price }} ETH</span>
-                                  </div>
-                                  <div class="high_price">
-                                    <p>Highest Bid</p>
-                                    <span>{{ picture.highest_bid }} ETH</span>
-                                  </div>
-                                </div>
-                    
-                              </div>       
-                              
-                            </div>
-                            {% empty %}
-                            <h3>No picture...</h3>
-                            {% endfor %}
-                          </div>
+                    <!-- Кнопки вкладок -->
+                    <div class="custom-tab-buttons">
+                        <label for="section1" class="custom-tab-btn">NFTs ({{ total_pictures }})</label>
+                        <label for="section2" class="custom-tab-btn">Collections</label>
                     </div>
-    
-                    <div class="tab-content" id="content2">
-                        <div class="nft_products">
-                            {% for collection in collections %}
+            
+                    <!-- Содержимое вкладок -->
+                    <div class="custom-tab-contents">
+                        <div class="custom-tab-content" id="contentA">
+                            <div class="nft_products detail_page_pic">
+                                {% for picture in pictures %}
                                 <div class="picture">
-                                    <div class="product-images">
-                                        <a href="{% url 'collection_detail' collection.id %}">
-                                            <img src="{{ collection.image.url }}" alt="{{ collection.name }}">
-                                        </a>
+                                  {% if picture.image %}
+                                  <div class="product-images">
+                                    <a href="{% url 'detail_page' picture.id %}"><img src="{{ picture.image.url }}" alt="{{ picture.name }}" /></a>
+                                  </div>
+                                  {% else %}
+                                  <p>Нет изображения</p>
+                                  {% endif %}
+                                  <div class="product_info">
+                                    <h3>{{ picture.name }}</h3>
+                        
+                                    <div class="avatar">
+                                        {% if user.profile.avatar %}
+                                            <img class="avatar_img" src="{{ user.profile.avatar.url }}" alt="User Avatar">
+                                        {% else %}
+                                            <img class="avatar_img" src="{% static 'assets/svg/first_avatar.svg' %}" alt="Default Avatar">
+                                        {% endif %}
+                                      <p>{{ picture.user }}</p>
                                     </div>
-                                    <h3>{{ collection.name }}</h3>
+                        
+                                    <div class="picture_price">
+                                      <div class="high_price">
+                                        <p>Price</p>
+                                        <span>{{ picture.price }} ETH</span>
+                                      </div>
+                                      <div class="high_price">
+                                        <p>Highest Bid</p>
+                                        <span>{{ picture.highest_bid }} ETH</span>
+                                      </div>
+                                    </div>
+                        
+                                  </div>       
+                                  
                                 </div>
-                            {% empty %}
-                                <h3>No collections available.</h3>
-                            {% endfor %}
+                                {% empty %}
+                                <h3>No picture...</h3>
+                                {% endfor %}
+
+                                
+                              </div>
+                              {% include 'components/pagination.html' %}
                         </div>
+                        <div class="custom-tab-content" id="contentB">
+                            <h2>🏛 Collections</h2>
+                            <p>Discover curated NFT Collections.</p>
+                        </div>
+                        
                     </div>
                 </div>
-                
-                
-
+            
             </div>
-
-
         </div>
     </div>
 </section>

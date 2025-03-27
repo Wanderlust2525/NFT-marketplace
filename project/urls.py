@@ -31,6 +31,7 @@ urlpatterns = [
     path('create-picture/', views.create, name='create_picture'),
     path('update-picture/<int:id>/', views.update, name='update_picture'),
     path('delete-picture/<int:id>/', views.delete, name='delete_picture'),
+    
 
     path('login/', views.user_login, name='login'),
 

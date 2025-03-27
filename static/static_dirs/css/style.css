@@ -1,1148 +1,1461 @@
-    * {
-        padding: 0;
-        margin: 0;
-        text-decoration: none;
-        list-style: none;
-        box-sizing: border-box;
-        color: rgba(255, 255, 255, 1);
-        /* background: rgba(43, 43, 43, 1); */
-    }
-    
-    .container {
-        max-width: 1280px;
-        width: 100%;
-        margin: 0 auto;
-    }
-    
-    .form label {
-        display: none;
-    }
-    
-    button {
-        background: rgba(162, 89, 255, 1);
-        border-radius: 20px;
-    }
-    
-    header {
-        background: rgba(43, 43, 43, 1);
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-    
-    h2 {
-        font-family: Work Sans;
-        font-weight: 600;
-        font-size: 38px;
-        padding-top: 80px;
-    }
-    
-    .header {
-        max-width: 1380px;
-        width: 100%;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    
-    .header-right {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    
-    .header-right p {
-        font-family: Work Sans;
-        font-weight: 600;
-        font-size: 16px;
-        text-align: center;
-        color: rgba(255, 255, 255, 1);
-        padding: 12px 20px;
-        margin-left: 10px;
-    }
-    
-    .header_button button {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        padding: 12px 30px;
-        font-family: Work Sans;
-        font-weight: 600;
-        font-size: 16px;
-        text-align: center;
-        border: none;
-    }
-    
-    .header_button button p {
-        padding: 5px;
-    }
-    
-    .menu_header {
-        display: none;
-    }
-    /* Панель меню */
-    
-    .menu-panel {
-        position: fixed;
-        top: 70px;
-        right: -220px;
-        /* Прячем за левую границу */
-        width: 180px;
-        /* Изначально скрыта */
-        background-color: rgba(41, 41, 45, 0.4);
-        padding-left: 30px;
-        display: flex;
-        flex-direction: column;
-        transition: left 0.3s ease;
-        z-index: 999;
-    }
-    
-    #burger-toggle:checked~.menu-panel {
-        right: 0;
-    }
-    
-    .menu {
-        width: 196px;
-        padding: 20px 0;
-    }
-    
-    #burger-toggle {
-        display: none;
-    }
-    
-    #dropdown_toggle {
-        display: none;
-    }
-    
-    section {
-        background: rgba(43, 43, 43, 1);
-    }
-    
-    .first_section_left_right {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        padding-top: 80px;
-        padding-bottom: 80px;
-    }
-    
-    .first_section_left h1 {
-        font-family: Work Sans;
-        font-weight: 600;
-        font-size: 67px;
-        max-width: 450px;
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    
-    .first_section_left p {
-        font-family: Work Sans;
-        font-weight: 400;
-        font-size: 22px;
-        max-width: 510px;
-        width: 100%;
-    }
-    
-    .first_section_button button {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        padding: 19px 50px;
-        font-family: Work Sans;
-        font-weight: 600;
-        font-size: 16px;
-        text-align: center;
-        border: none;
-        margin-top: 40px;
-        margin-bottom: 40px;
-    }
-    
-    .first_section_information {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    
-    .first_section_information h3 {
-        font-family: Space Mono;
-        font-weight: 700;
-        font-size: 28px;
-    }
-    
-    .first_section_information p {
-        font-family: Work Sans;
-        font-weight: 400;
-        font-size: 23.99px;
-    }
-    
-    .first_section_right {
-        background: rgba(59, 59, 59, 1);
-        border-radius: 20px;
-    }
-    
-    .first_section_right h3 {
-        margin-top: 20px;
-        margin-bottom: 10px;
-        margin-left: 20px;
-    }
-    
-    .avatar_name {
-        display: flex;
-        align-items: center;
-        justify-content: start;
-        margin-left: 20px;
-        margin-bottom: 22px;
-    }
-    
-    .avatar_name p {
-        margin-left: 12px;
-    }
-    
-    .trending_collection p {
-        font-family: Work Sans;
-        font-weight: 400;
-        font-size: 22px;
-        margin-top: 10px;
-        margin-bottom: 60px;
-    }
-    
-    .collection_card {
-        max-width: 330px;
-        width: 100%;
-    }
-    
-    .mini_collection_img {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-top: 15px;
-        margin-bottom: 15px;
-    }
-    
-    .mini_collection_img img {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .mini_collection_img button {
-        width: 100px;
-        height: 100px;
-        border: none;
-        font-family: Space Mono;
-        font-weight: 700;
-        font-size: 22px;
-    }
-    
-    .tranding_collection_all {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-    }
-    
-    .tranding_collection_all h3 {
-        font-family: Work Sans;
-        font-weight: 600;
-        font-size: 22px;
-        margin-bottom: 10px;
-    }
-    
-    .avatar {
-        display: flex;
-        align-items: center;
-        justify-content: start;
-        text-align: center;
-        font-weight: 400;
-        font-size: 16px;
-    }
-    
-    .avatar p {
-        margin-left: 12px;
-    }
-    
-    .text_view_button {
-        display: flex;
-        align-items: end;
-        justify-content: space-between;
-    }
-    
-    .text_view_button p {
-        font-family: Work Sans;
-        font-weight: 400;
-        font-size: 22px;
-    }
-    
-    .black_button {
-        border-radius: 20px;
-        border: 2px solid rgba(162, 89, 255, 1);
-        background-attachment: transparent;
-        padding: 19px 50px;
-    }
-    
-    .black_button img {
-        margin-right: 10px;
-    }
-    
-    .total {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .top_creators_card h4 {
-        margin-top: 20px;
-        margin-bottom: 5px;
-        font-family: Work Sans;
-        font-weight: 600;
-        font-size: 22px;
-    }
-    
-    .total p {
-        font-family: Work Sans;
-        font-weight: 400;
-        font-size: 16px;
-        color: rgba(133, 133, 132, 1);
-        margin-right: 10px;
-    }
-    
-    .creator {
-        align-items: center;
-        text-align: center;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        max-width: 240px;
-        width: 100%;
-        background: rgba(59, 59, 59, 1);
-        border-radius: 20px;
-        margin: 20px 20px 0 0;
-    }
-    
-    .categories_card {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-around;
-        gap: 30px;
-        margin-top: 60px;
-    }
-    
-    .category {
-        /* width: calc(25% - 10px); */
-        /* 4 карточки в ряд */
-        box-sizing: border-box;
-        text-align: start;
-        border: 1px solid #ddd;
-        max-width: 240px;
-        width: 100%;
-        border-radius: 20px;
-        background: rgba(59, 59, 59, 1);
-        border: none;
-    }
-    
-    .category h3 {
-        font-family: Work Sans;
-        font-weight: 600;
-        font-size: 22px;
-        padding-top: 20px;
-        padding-bottom: 25px;
-        padding-left: 30px;
-    }
-    
-    .category-images {
-        position: relative;
-        display: inline-block;
-        border-radius: 20px 20px 0 0;
-    }
-    
-    .main-image {
-        max-width: 240px;
-        width: 100%;
-        filter: blur(5px);
-        clip-path: inset(0.1px);
-        border-radius: 20px 20px 0 0;
-    }
-    
-    .icon {
-        position: absolute;
-        top: 60px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100px;
-        height: 100px;
-    }
-    
-    .nft_products {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        margin-top: 60px;
-        padding-bottom: 80px;
-    }
-    
-    .picture {
-        background: rgba(59, 59, 59, 1);
-        border-radius: 20px;
-        max-width: 330px;
-        width: 100%;
-    }
-    
-    .product_info {
-        padding-top: 20px;
-        padding-bottom: 25px;
-        padding-left: 30px;
-        padding-right: 30px;
-    }
-    
-    .product_info .avatar {
-        padding-top: 10px;
-        padding-bottom: 20px;
-    }
-    
-    .picture_price {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    
-    .high_price p {
-        font-family: Space Mono;
-        font-weight: 400;
-        font-size: 12px;
-        color: rgba(133, 133, 132, 1);
-    }
-    
-    .high_price span {
-        font-family: Space Mono;
-        font-weight: 400;
-        font-size: 16px;
-    }
-    
-    .bg_picture {
-        position: relative;
-        width: fit-content;
-        width: 100%;
-        height: 100%;
-    }
-    
-    .bg-image {
-        display: block;
-        width: 100%;
-    }
-    
-    .over-image {
-        position: absolute;
-        top: 20px;
-        width: 100%;
-    }
-    
-    .how_it_work {
-        padding-top: 40px;
-        padding-bottom: 80px;
-    }
-    
-    .how_it_work p {
-        font-family: Work Sans;
-        font-weight: 400;
-        font-size: 22px;
-        margin-top: 10px;
-    }
-    
-    .works_info_card {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-top: 48px;
-    }
-    
-    .works_card {
-        background: rgba(59, 59, 59, 1);
-        border-radius: 20px;
-        text-align: center;
-        max-width: 400px;
-        width: 100%;
-        height: 440px;
-        padding: 30px;
-    }
-    
-    .works_card h4 {
-        font-family: Work Sans;
-        font-weight: 600;
-        font-size: 22px;
-        margin-top: 20px;
-        margin-bottom: 10px;
-    }
-    
-    .works_card p {
-        max-width: 270px;
-        width: 100%;
-        font-family: Work Sans;
-        font-weight: 400;
-        font-size: 16px;
-        margin: 0 auto;
-    }
-    
-    .subscribe_page {
-        background: rgba(59, 59, 59, 1);
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        border-radius: 20px;
-        padding-top: 60px;
-        padding-bottom: 60px;
-    }
-    
-    .section_end {
-        padding-bottom: 40px;
-    }
-    
-    .subscribe_text h2 {
-        max-width: 380px;
-        width: 100%;
-        margin-bottom: 10px;
-        padding-top: 0;
-    }
-    
-    .subscribe_text p {
-        font-family: Work Sans;
-        font-weight: 400;
-        font-size: 22px;
-        max-width: 380px;
-        width: 100%;
-    }
-    
-    .sub_input {
-        display: flex;
-        align-items: center;
-        margin-top: 40px;
-    }
-    
-    .sub_input input {
-        border-radius: 20px;
-        padding: 19px 20px;
-        border: none;
-        font-family: Work Sans;
-        font-weight: 400;
-        font-size: 16px;
-        color: black;
-        outline: none;
-    }
-    
-    .sub_input button {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        border: none;
-        font-family: Work Sans;
-        font-weight: 600;
-        font-size: 16px;
-        margin-left: -30px;
-        padding: 19px 30px;
-    }
-    
-    .sub_input p {
-        font-family: Work Sans;
-        font-weight: 600;
-        font-size: 16px;
-        margin-left: 10px;
-    }
-    
-    footer {
-        background: rgba(59, 59, 59, 1);
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
-    
-    .footer_info {
-        display: flex;
-        align-items: start;
-        justify-content: space-between;
-    }
-    
-    .links {
-        display: flex;
-        align-items: center;
-        justify-content: start;
-        padding-top: 20px;
-    }
-    
-    .footer_part h3 {
-        font-family: Space Mono;
-        font-weight: 700;
-        font-size: 22px;
-    }
-    
-    .p_text p {
-        font-family: Work Sans;
-        font-weight: 400;
-        font-size: 16px;
-        color: rgba(204, 204, 204, 1);
-        margin-top: 20px;
-        max-width: 280px;
-        width: 100%;
-    }
-    
-    .p_text a {
-        font-family: Work Sans;
-        font-weight: 400;
-        font-size: 16px;
-        color: rgba(204, 204, 204, 1);
-        margin-top: 20px;
-        max-width: 236px;
-        width: 100%;
-    }
-    
-    .footer_bottom {
-        border-top: 1px solid rgba(133, 133, 132, 1);
-        margin-top: 30px;
-        padding-top: 20px;
-    }
-    
-    .footer_bottom p {
-        font-family: Work Sans;
-        font-weight: 400;
-        font-size: 12px;
-        color: rgba(204, 204, 204, 1);
-    }
-    
-    .create_account {
-        background: rgba(43, 43, 43, 1);
-        display: flex;
-        align-items: center;
-        justify-content: start;
-    }
-    
-    .product-images img {
-        width: 100%;
-        /* height: 500px; */
-        object-fit: cover;
-    }
-    
-    .detail_page_all {
-        display: flex;
-        align-items: start;
-        justify-content: space-between;
-    }
-    
-    .detail_page_left {
-        max-width: 605px;
-        width: 100%;
-    }
-    
-    .detail_page_left span {
-        font-family: Work Sans;
-        font-weight: 400;
-        font-size: 22px;
-        color: rgba(133, 133, 132, 1);
-    }
-    
-    .detail_page_left h3 {
-        font-family: Space Mono;
-        font-weight: 700;
-        font-size: 22px;
-        color: rgba(133, 133, 132, 1);
-        margin-top: 30px;
-        margin-bottom: 10px;
-    }
-    
-    .detail_page_left p {
-        font-family: Work Sans;
-        font-weight: 400;
-        font-size: 22px;
-    }
-    
-    .detail_page_left h4 {
-        font-family: Work Sans;
-        font-weight: 600;
-        font-size: 22px;
-        margin-left: 12px;
-    }
-    
-    .details_icon {
-        display: flex;
-        align-items: center;
-        margin-top: 10px;
-    }
-    
-    .details_icon img {
-        margin-right: 12px;
-    }
-    
-    .all_tags {
-        display: flex;
-        align-items: center;
-        justify-content: start;
-        gap: 20px;
-    }
-    
-    .detail_tags {
-        background: rgba(59, 59, 59, 1);
-        border-radius: 20px;
-        font-family: Work Sans;
-        font-weight: 600;
-        font-size: 16px;
-        padding: 12px 30px;
-    }
-    
-    .detail_page_right {
-        max-width: 330px;
-        width: 100%;
-    }
-    
-    .detail_page_right img {
-        padding-top: 80px;
-        border-radius: 20px;
-    }
-    
-    .detail_page_right button {
-        border: none;
-        padding: 10px 20px;
-        width: 100%;
-        font-family: Work Sans;
-        font-weight: 400;
-        font-size: 22px;
-        margin-top: 10px;
-    }
-    
-    .page_artist_head {
-        display: flex;
-        align-items: end;
-        justify-content: space-between;
-    }
-    
-    .page_artist_head .black_button {
-        margin-top: 80px;
-    }
-    
-    .nft_products.detail_page_pic {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        gap: 30px;
-    }
-    
-    .browse_marketplace {
-        padding-bottom: 80px;
-    }
-    
-    .browse_marketplace h1 {
-        font-family: Work Sans;
-        font-weight: 600;
-        font-size: 51px;
-        padding-top: 80px;
-    }
-    
-    .browse_marketplace p {
-        font-family: Work Sans;
-        font-weight: 400;
-        font-size: 22px;
-        margin-top: 10px;
-        margin-bottom: 30px;
-    }
-    
-    .marketplace_input {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border: 1px solid rgba(59, 59, 59, 1);
-        border-radius: 20px;
-        padding: 19px 20px;
-    }
-    
-    .marketplace_input input {
-        font-family: Work Sans;
-        font-weight: 400;
-        font-size: 16px;
-        color: rgba(133, 133, 132, 1);
-        width: 100%;
-        border: none;
-        background-color: transparent;
-        outline: none;
-    }
-    
-    .search_button {
-        border: none;
-        background-color: transparent;
-    }
-    
-    .section2 {
-        border-top: 1px solid rgba(59, 59, 59, 1);
-    }
-    
-    input[type="radio"] {
-        display: none;
-    }
-    
-    .tabs {
-        font-family: Work Sans, sans-serif;
-        font-weight: 600;
-        font-size: 22px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-    
-    .tabs .tab-buttons {
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
-    }
-    
-    .tabs label {
-        display: inline-block;
-        padding: 20px;
-        cursor: pointer;
-        font-family: Work Sans;
-        font-weight: 600;
-        font-size: 22px;
-        color: rgba(133, 133, 132, 1);
-    }
-    
-    input[type="radio"]:checked+.tab-buttons label[for="tab1"] {
-        color: white;
-        border-bottom: 2px solid rgba(133, 133, 132, 1);
-    }
-    
-    input[type="radio"]:checked+.tab-buttons label[for="tab2"] {
-        color: white;
-        border-bottom: 2px solid rgba(133, 133, 132, 1);
-    }
-    
-    #tab1:checked~.tab-contents #content1,
-    #tab2:checked~.tab-contents #content2 {
-        display: block;
-    }
-    
-    .tab-content {
-        display: none;
-    }
-    
-    .right_create_account {
-        padding-left: 60px;
-    }
-    
-    .right_create_account h1 {
-        font-family: Work Sans;
-        font-weight: 600;
-        font-size: 51px;
-    }
-    
-    .right_create_account p {
-        font-family: Work Sans;
-        font-weight: 400;
-        font-size: 22px;
-        max-width: 460px;
-        width: 100%;
-        margin-top: 20px;
-        margin-bottom: 40px;
-    }
-    
-    .helptext {
-        display: none;
-    }
-    
-    .btn_account {
-        border: none;
-        max-width: 330px;
-        width: 100%;
-        padding-top: 12px;
-        padding-bottom: 12px;
-    }
-    
-    .login-form {
-        display: flex;
-        align-items: center;
-        justify-content: start;
-        max-width: 330px;
-        width: 100%;
-        background-color: white;
-        border-radius: 20px;
-        padding-left: 20px;
-        margin-bottom: 12px;
-    }
-    
-    .login-form input {
-        width: 100%;
-        padding-top: 12px;
-        border: none;
-        outline: none;
-        color: black;
-    }
-    
-    .login-form::placeholder {
-        color: black;
-    }
-    
-    .sign_up {
-        color: wheat;
-    }
-    
-    .profile_bg .avatar_bg {
-        width: 100%;
-        object-fit: cover;
-        margin: 0 auto;
-    }
-    
-    .profile_avatar {
-        margin-top: -50px;
-        border-radius: 50%;
-    }
-    
-    .avatar_img {
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-    }
-    
-    .profile_info {
-        display: flex;
-        align-items: start;
-        justify-content: space-between;
-        padding-bottom: 30px;
-    }
-    
-    .count_info {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 40px;
-        margin-top: 30px;
-        margin-bottom: 30px;
-    }
-    
-    .followers h3 {
-        font-family: Space Mono;
-        font-weight: 700;
-        font-size: 28px;
-    }
-    
-    .followers p {
-        font-family: Work Sans;
-        font-weight: 400;
-        font-size: 22px;
-    }
-    
-    .left_info h4 {
-        font-family: Space Mono;
-        font-weight: 700;
-        font-size: 22px;
-        color: rgba(133, 133, 132, 1);
-    }
-    
-    .left_info p {
-        font-family: Work Sans;
-        font-weight: 400;
-        font-size: 22px;
-        margin-bottom: 30px;
-        margin-top: 10px;
-    }
-    
-    .right_info {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-    }
-    
-    .balance_button button {
-        font-family: Work Sans;
-        font-weight: 600;
-        font-size: 16px;
-        text-align: center;
-        border-radius: 20px;
-        border: 2px solid rgba(162, 89, 255, 1);
-        padding: 20px 40px;
-    }
-    
-    .create_button button {
-        font-family: Work Sans;
-        font-weight: 600;
-        font-size: 16px;
-        text-align: center;
-        border-radius: 20px;
-        border: 2px solid rgba(162, 89, 255, 1);
-        padding: 20px 40px;
-        background-color: transparent;
-    }
-    
-    .section_prof {
-        border-top: 1px solid rgba(59, 59, 59, 1);
-    }
-    
-    .custom-tabs {
-        padding: 15px;
-    }
-    
-    input[type="radio"] {
-        display: none;
-    }
-    
-    .custom-tab-buttons {
-        display: flex;
-        justify-content: space-around;
-        margin-bottom: 20px;
-    }
-    /* Стили кнопок */
-    
-    .custom-tab-btn {
-        font-family: Work Sans;
-        font-weight: 600;
-        font-size: 22px;
-        text-align: center;
-        padding: 10px 20px;
-        cursor: pointer;
-        color: rgba(133, 133, 132, 1);
-        border-bottom: 2px solid transparent;
-        transition: 0.3s;
-    }
-    
-    #section1:checked~.custom-tab-buttons label[for="section1"],
-    #section2:checked~.custom-tab-buttons label[for="section2"],
-    #section3:checked~.custom-tab-buttons label[for="section3"] {
-        color: white;
-        border-bottom: 2px solid rgba(133, 133, 132, 1);
-    }
-    /* Контейнер содержимого */
-    
-    .custom-tab-contents {
-        position: relative;
-    }
-    /* Скрываем содержимое вкладок */
-    
-    .custom-tab-content {
-        display: none;
-    }
-    /* Показываем активное содержимое */
-    
-    #section1:checked~.custom-tab-contents #contentA,
-    #section2:checked~.custom-tab-contents #contentB,
-    #section3:checked~.custom-tab-contents #contentC {
-        display: block;
-    }
-    
-    .name_icons {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    
-    .create_picture_form {
-        display: flex;
-        align-items: center;
-        justify-content: stretch;
-    }
-    
-    .create_picture {
-        margin-left: 20px;
-    }
-    
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        border: none;
-        font-family: Work Sans;
-        font-weight: 600;
-        font-size: 18px;
-        color: black;
-        outline: none;
-        padding: 10px 20px;
-        border-radius: 8px;
-        box-sizing: border-box;
-        transition: border-color 0.3s ease-in-out;
-    }
-    /* Стили для контейнера с чекбоксами */
-    
-    .form-group .checkboxselectmultiple {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .form-group input[type="checkbox"] {
-        width: 20px;
-        height: 20px;
-        transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
-        cursor: pointer;
-        appearance: none;
-        border: 2px solid rgba(162, 89, 255, 1);
-        border-radius: 4px;
-        background-color: white;
-        outline: none;
-    }
-    
-    .form-group input[type="checkbox"]:checked {
-        background: rgba(162, 89, 255, 1);
-        border: none;
-    }
-    
-    .balance_card {
-        width: 350px;
-        height: 210px;
-        border-radius: 15px;
-        padding: 20px;
-        background-size: contain;
-        border-radius: 20px;
-        margin-bottom: 20px;
-    }
-    
-    .balance_card h3 {
-        max-width: 190px;
-        width: 100%;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        background-color: black;
-    }
-    
-    .balance_card p {
-        background-color: black;
-        gap: 30px;
-    }
-    
-    .modal {
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        visibility: hidden;
-        opacity: 0;
-        transition: visibility 0s linear 0.3s, opacity 0.3s;
-    }
-    
-    #modal-toggle:checked~.modal {
-        visibility: visible;
-        opacity: 1;
-        transition-delay: 0s;
-    }
-    
-    .modal-content {
-        background-color: white;
-        padding: 20px;
-        border-radius: 10px;
-        width: 50%;
-        text-align: center;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    
-    .close {
-        color: rgba(162, 89, 255, 1);
-        float: right;
-        font-size: 24px;
-        cursor: pointer;
-    }
-    
-    .close:hover {
-        color: rgba(162, 89, 255, 1);
-    }
-    
-    .balance_input {
-        padding: 10px;
-        font-family: Work Sans;
-        font-weight: 400;
-        font-size: 16px;
-        color: rgba(43, 43, 43, 1);
-    }
+        * {
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+            color: rgba(255, 255, 255, 1);
+            /* background: rgba(43, 43, 43, 1); */
+        }
+        
+        .container {
+            max-width: 1280px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        .form label {
+            display: none;
+        }
+        
+        button {
+            background: rgba(162, 89, 255, 1);
+            border-radius: 20px;
+        }
+        
+        header {
+            background: rgba(43, 43, 43, 1);
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        
+        h2 {
+            font-family: Work Sans;
+            font-weight: 600;
+            font-size: 38px;
+            padding-top: 80px;
+        }
+        
+        .header {
+            max-width: 1380px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .header-right p {
+            font-family: Work Sans;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+            color: rgba(255, 255, 255, 1);
+            padding: 12px 20px;
+            margin-left: 10px;
+        }
+        
+        .header_button button {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 12px 30px;
+            font-family: Work Sans;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+            border: none;
+        }
+        
+        .header_button button p {
+            padding: 5px;
+        }
+        
+        .menu_header {
+            display: none;
+        }
+        /* Панель меню */
+        
+        .menu-panel {
+            position: fixed;
+            top: 70px;
+            right: -220px;
+            /* Прячем за левую границу */
+            width: 180px;
+            /* Изначально скрыта */
+            background-color: rgba(41, 41, 45, 0.4);
+            padding-left: 30px;
+            display: flex;
+            flex-direction: column;
+            transition: left 0.3s ease;
+            z-index: 999;
+        }
+        
+        #burger-toggle:checked~.menu-panel {
+            right: 0;
+        }
+        
+        .menu {
+            width: 196px;
+            padding: 20px 0;
+        }
+        
+        #burger-toggle {
+            display: none;
+        }
+        
+        #dropdown_toggle {
+            display: none;
+        }
+        
+        section {
+            background: rgba(43, 43, 43, 1);
+        }
+        
+        .first_section_left_right {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        
+        .first_section_left h1 {
+            font-family: Work Sans;
+            font-weight: 600;
+            font-size: 67px;
+            max-width: 450px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        .first_section_left p {
+            font-family: Work Sans;
+            font-weight: 400;
+            font-size: 22px;
+            max-width: 510px;
+            width: 100%;
+        }
+        
+        .first_section_button button {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 19px 50px;
+            font-family: Work Sans;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+            border: none;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .first_section_information {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .first_section_information h3 {
+            font-family: Space Mono;
+            font-weight: 700;
+            font-size: 28px;
+        }
+        
+        .first_section_information p {
+            font-family: Work Sans;
+            font-weight: 400;
+            font-size: 23.99px;
+        }
+        
+        .first_section_right {
+            background: rgba(59, 59, 59, 1);
+            border-radius: 20px;
+        }
+        
+        .first_section_right h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            margin-left: 20px;
+        }
+        
+        .avatar_name {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            margin-left: 20px;
+            margin-bottom: 22px;
+        }
+        
+        .avatar_name p {
+            margin-left: 12px;
+        }
+        
+        .trending_collection p {
+            font-family: Work Sans;
+            font-weight: 400;
+            font-size: 22px;
+            margin-top: 10px;
+            margin-bottom: 60px;
+        }
+        
+        .collection_card {
+            max-width: 330px;
+            width: 100%;
+        }
+        
+        .mini_collection_img {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .mini_collection_img img {
+            width: 100px;
+            height: 100px;
+        }
+        
+        .mini_collection_img button {
+            width: 100px;
+            height: 100px;
+            border: none;
+            font-family: Space Mono;
+            font-weight: 700;
+            font-size: 22px;
+        }
+        
+        .tranding_collection_all {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-content: space-between;
+        }
+        
+        .tranding_collection_all h3 {
+            font-family: Work Sans;
+            font-weight: 600;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        
+        .avatar {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            text-align: center;
+            font-weight: 400;
+            font-size: 16px;
+        }
+        
+        .avatar p {
+            margin-left: 12px;
+        }
+        
+        .text_view_button {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+        }
+        
+        .text_view_button p {
+            font-family: Work Sans;
+            font-weight: 400;
+            font-size: 22px;
+        }
+        
+        .black_button {
+            border-radius: 20px;
+            border: 2px solid rgba(162, 89, 255, 1);
+            background-attachment: transparent;
+            padding: 19px 50px;
+        }
+        
+        .black_button img {
+            margin-right: 10px;
+        }
+        
+        .total {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .top_creators_card {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .top_creators_card h4 {
+            margin-top: 20px;
+            margin-bottom: 5px;
+            font-family: Work Sans;
+            font-weight: 600;
+            font-size: 22px;
+        }
+        
+        .total p {
+            font-family: Work Sans;
+            font-weight: 400;
+            font-size: 16px;
+            color: rgba(133, 133, 132, 1);
+            margin-right: 10px;
+        }
+        
+        .creator {
+            align-items: center;
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            max-width: 240px;
+            width: 100%;
+            background: rgba(59, 59, 59, 1);
+            border-radius: 20px;
+            margin: 20px 20px 0 0;
+        }
+        
+        .creator_img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+        }
+        
+        .forloop_avatar {
+            display: flex;
+            align-items: start;
+            justify-content: start;
+            margin-bottom: 20px;
+            margin-left: 20px;
+        }
+        
+        .forloop_avatar img {
+            margin-left: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .forloop_avatar .forloop {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .categories_card {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .category {
+            box-sizing: border-box;
+            text-align: start;
+            border: 1px solid #ddd;
+            max-width: 240px;
+            width: 100%;
+            border-radius: 20px;
+            background: rgba(59, 59, 59, 1);
+            border: none;
+        }
+        
+        .category h3 {
+            font-family: Work Sans;
+            font-weight: 600;
+            font-size: 22px;
+            padding-top: 20px;
+            padding-bottom: 25px;
+            padding-left: 30px;
+        }
+        
+        .category-images {
+            position: relative;
+            display: inline-block;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .main-image {
+            max-width: 240px;
+            width: 100%;
+            filter: blur(5px);
+            clip-path: inset(0.1px);
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .icon {
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+        }
+        
+        .nft_products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            justify-content: center;
+            margin-top: 60px;
+            padding-bottom: 80px;
+        }
+        
+        .picture {
+            background: rgba(59, 59, 59, 1);
+            border-radius: 20px;
+            max-width: 330px;
+            width: 100%;
+        }
+        
+        .product_info {
+            padding-top: 20px;
+            padding-bottom: 25px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        
+        .product_info .avatar {
+            padding-top: 10px;
+            padding-bottom: 20px;
+        }
+        
+        .picture_price {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .high_price p {
+            font-family: Space Mono;
+            font-weight: 400;
+            font-size: 12px;
+            color: rgba(133, 133, 132, 1);
+        }
+        
+        .high_price span {
+            font-family: Space Mono;
+            font-weight: 400;
+            font-size: 16px;
+        }
+        
+        .bg_picture {
+            position: relative;
+            width: fit-content;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .bg-image {
+            display: block;
+            width: 100%;
+        }
+        
+        .over-image {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+        }
+        
+        .how_it_work {
+            padding-top: 40px;
+            padding-bottom: 80px;
+        }
+        
+        .how_it_work p {
+            font-family: Work Sans;
+            font-weight: 400;
+            font-size: 22px;
+            margin-top: 10px;
+        }
+        
+        .works_info_card {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin-top: 48px;
+        }
+        
+        .works_card {
+            background: rgba(59, 59, 59, 1);
+            border-radius: 20px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            height: 440px;
+            padding: 30px;
+        }
+        
+        .works_card h4 {
+            font-family: Work Sans;
+            font-weight: 600;
+            font-size: 22px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .works_card p {
+            max-width: 270px;
+            width: 100%;
+            font-family: Work Sans;
+            font-weight: 400;
+            font-size: 16px;
+            margin: 0 auto;
+        }
+        
+        .subscribe_page {
+            background: rgba(59, 59, 59, 1);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            border-radius: 20px;
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+        
+        .section_end {
+            padding-bottom: 40px;
+        }
+        
+        .subscribe_text h2 {
+            max-width: 380px;
+            width: 100%;
+            margin-bottom: 10px;
+            padding-top: 0;
+        }
+        
+        .subscribe_text p {
+            font-family: Work Sans;
+            font-weight: 400;
+            font-size: 22px;
+            max-width: 380px;
+            width: 100%;
+        }
+        
+        .sub_input {
+            display: flex;
+            align-items: center;
+            margin-top: 40px;
+        }
+        
+        .sub_input input {
+            border-radius: 20px;
+            padding: 19px 20px;
+            border: none;
+            font-family: Work Sans;
+            font-weight: 400;
+            font-size: 16px;
+            color: black;
+            outline: none;
+        }
+        
+        .sub_input button {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            border: none;
+            font-family: Work Sans;
+            font-weight: 600;
+            font-size: 16px;
+            margin-left: -30px;
+            padding: 19px 30px;
+        }
+        
+        .sub_input p {
+            font-family: Work Sans;
+            font-weight: 600;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+        
+        footer {
+            background: rgba(59, 59, 59, 1);
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+        
+        .footer_info {
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+        }
+        
+        .links {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            padding-top: 20px;
+        }
+        
+        .footer_part h3 {
+            font-family: Space Mono;
+            font-weight: 700;
+            font-size: 22px;
+        }
+        
+        .p_text p {
+            font-family: Work Sans;
+            font-weight: 400;
+            font-size: 16px;
+            color: rgba(204, 204, 204, 1);
+            margin-top: 20px;
+            max-width: 280px;
+            width: 100%;
+        }
+        
+        .p_text a {
+            font-family: Work Sans;
+            font-weight: 400;
+            font-size: 16px;
+            color: rgba(204, 204, 204, 1);
+            margin-top: 20px;
+            max-width: 236px;
+            width: 100%;
+        }
+        
+        .footer_bottom {
+            border-top: 1px solid rgba(133, 133, 132, 1);
+            margin-top: 30px;
+            padding-top: 20px;
+        }
+        
+        .footer_bottom p {
+            font-family: Work Sans;
+            font-weight: 400;
+            font-size: 12px;
+            color: rgba(204, 204, 204, 1);
+        }
+        
+        .create_account {
+            background: rgba(43, 43, 43, 1);
+            display: flex;
+            align-items: center;
+            justify-content: start;
+        }
+        
+        .product-images img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .fullscreen-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+        
+        .detail_page_all {
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+        }
+        
+        .detail_page_left {
+            max-width: 605px;
+            width: 100%;
+        }
+        
+        .detail_page_left span {
+            font-family: Work Sans;
+            font-weight: 400;
+            font-size: 22px;
+            color: rgba(133, 133, 132, 1);
+        }
+        
+        .detail_page_left h3 {
+            font-family: Space Mono;
+            font-weight: 700;
+            font-size: 22px;
+            color: rgba(133, 133, 132, 1);
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        
+        .detail_page_left p {
+            font-family: Work Sans;
+            font-weight: 400;
+            font-size: 22px;
+        }
+        
+        .detail_page_left h4 {
+            font-family: Work Sans;
+            font-weight: 600;
+            font-size: 22px;
+            margin-left: 12px;
+        }
+        
+        .details_icon {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        
+        .details_icon img {
+            margin-right: 12px;
+        }
+        
+        .all_tags {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            gap: 20px;
+        }
+        
+        .detail_tags {
+            background: rgba(59, 59, 59, 1);
+            border-radius: 20px;
+            font-family: Work Sans;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 12px 30px;
+        }
+        
+        .detail_page_right {
+            max-width: 330px;
+            width: 100%;
+        }
+        
+        .detail_page_right img {
+            padding-top: 80px;
+            border-radius: 20px;
+            max-width: 330px;
+            width: 100%;
+        }
+        
+        .detail_page_right button {
+            border: none;
+            padding: 10px 20px;
+            width: 100%;
+            font-family: Work Sans;
+            font-weight: 400;
+            font-size: 22px;
+            margin-top: 10px;
+        }
+        
+        .page_artist_head {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+        }
+        
+        .page_artist_head .black_button {
+            margin-top: 80px;
+        }
+        
+        .nft_products.detail_page_pic {
+            display: grid;
+            margin-top: 60px;
+            padding-bottom: 80px;
+        }
+        
+        .browse_marketplace {
+            padding-bottom: 80px;
+        }
+        
+        .browse_marketplace h1 {
+            font-family: Work Sans;
+            font-weight: 600;
+            font-size: 51px;
+            padding-top: 80px;
+        }
+        
+        .browse_marketplace p {
+            font-family: Work Sans;
+            font-weight: 400;
+            font-size: 22px;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .marketplace_input {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgba(59, 59, 59, 1);
+            border-radius: 20px;
+            padding: 19px 20px;
+        }
+        
+        .marketplace_input input {
+            font-family: Work Sans;
+            font-weight: 400;
+            font-size: 16px;
+            color: rgba(133, 133, 132, 1);
+            width: 100%;
+            border: none;
+            background-color: transparent;
+            outline: none;
+        }
+        
+        .search_button {
+            border: none;
+            background-color: transparent;
+        }
+        
+        .section2 {
+            border-top: 1px solid rgba(59, 59, 59, 1);
+        }
+        
+        input[type="radio"] {
+            display: none;
+        }
+        
+        .tabs {
+            font-family: Work Sans, sans-serif;
+            font-weight: 600;
+            font-size: 22px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .tabs .tab-buttons {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+        
+        .tabs label {
+            display: inline-block;
+            padding: 20px;
+            cursor: pointer;
+            font-family: Work Sans;
+            font-weight: 600;
+            font-size: 22px;
+            color: rgba(133, 133, 132, 1);
+        }
+        
+        input[type="radio"]:checked+.tab-buttons label[for="tab1"] {
+            color: white;
+            border-bottom: 2px solid rgba(133, 133, 132, 1);
+        }
+        
+        input[type="radio"]:checked+.tab-buttons label[for="tab2"] {
+            color: white;
+            border-bottom: 2px solid rgba(133, 133, 132, 1);
+        }
+        
+        #tab1:checked~.tab-contents #content1,
+        #tab2:checked~.tab-contents #content2 {
+            display: block;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .right_create_account {
+            padding-left: 60px;
+        }
+        
+        .right_create_account h1 {
+            font-family: Work Sans;
+            font-weight: 600;
+            font-size: 51px;
+        }
+        
+        .right_create_account p {
+            font-family: Work Sans;
+            font-weight: 400;
+            font-size: 22px;
+            max-width: 460px;
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .helptext {
+            display: none;
+        }
+        
+        .btn_account {
+            border: none;
+            max-width: 330px;
+            width: 100%;
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+        
+        .login-form {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            max-width: 330px;
+            width: 100%;
+            background-color: white;
+            border-radius: 20px;
+            padding-left: 20px;
+            margin-bottom: 12px;
+            font-family: Work Sans;
+            font-weight: 400;
+            font-size: 16px;
+        }
+        
+        .login-form input {
+            width: 100%;
+            padding-top: 12px;
+            border: none;
+            outline: none;
+            color: black;
+            border-radius: 20px;
+        }
+        
+        .login-form input[type="password"] {
+            width: 100%;
+            padding-top: 12px;
+            border: none;
+            outline: none;
+            color: black;
+            border-radius: 20px;
+            padding-left: 20px;
+            font-family: Work Sans;
+            font-weight: 400;
+            font-size: 16px;
+            margin: 0 auto;
+        }
+        
+        .login-form::placeholder {
+            color: black;
+        }
+        
+        .sign_up {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            margin-left: 20px;
+        }
+        
+        .sign_up a {
+            color: wheat;
+            margin-right: 20px;
+            margin-top: 10px;
+        }
+        
+        .profile_bg .avatar_bg {
+            width: 100%;
+            object-fit: cover;
+            margin: 0 auto;
+        }
+        
+        .profile_avatar {
+            margin-top: -50px;
+            border-radius: 50%;
+            max-width: 120px;
+            width: 100%;
+        }
+        
+        .avatar_img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+        
+        .profile_info {
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+            padding-bottom: 30px;
+        }
+        
+        .count_info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .followers h3 {
+            font-family: Space Mono;
+            font-weight: 700;
+            font-size: 28px;
+        }
+        
+        .followers p {
+            font-family: Work Sans;
+            font-weight: 400;
+            font-size: 22px;
+        }
+        
+        .left_info h4 {
+            font-family: Space Mono;
+            font-weight: 700;
+            font-size: 22px;
+            color: rgba(133, 133, 132, 1);
+        }
+        
+        .left_info p {
+            font-family: Work Sans;
+            font-weight: 400;
+            font-size: 22px;
+            margin-bottom: 30px;
+            margin-top: 10px;
+        }
+        
+        .right_info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        
+        .balance_button button {
+            font-family: Work Sans;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+            border-radius: 20px;
+            border: 2px solid rgba(162, 89, 255, 1);
+            padding: 20px 40px;
+        }
+        
+        .create_button button {
+            font-family: Work Sans;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+            border-radius: 20px;
+            border: 2px solid rgba(162, 89, 255, 1);
+            padding: 20px 40px;
+            background-color: transparent;
+        }
+        
+        .section_prof {
+            border-top: 1px solid rgba(59, 59, 59, 1);
+        }
+        
+        .custom-tabs {
+            padding: 15px;
+        }
+        
+        input[type="radio"] {
+            display: none;
+        }
+        
+        .custom-tab-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        /* Стили кнопок */
+        
+        .custom-tab-btn {
+            font-family: Work Sans;
+            font-weight: 600;
+            font-size: 22px;
+            text-align: center;
+            padding: 10px 20px;
+            cursor: pointer;
+            color: rgba(133, 133, 132, 1);
+            border-bottom: 2px solid transparent;
+            transition: 0.3s;
+        }
+        
+        #section1:checked~.custom-tab-buttons label[for="section1"],
+        #section2:checked~.custom-tab-buttons label[for="section2"],
+        #section3:checked~.custom-tab-buttons label[for="section3"],
+        #section4:checked~.custom-tab-buttons label[for="section4"] {
+            color: white;
+            border-bottom: 2px solid rgba(133, 133, 132, 1);
+        }
+        
+        .custom-tab-contents {
+            position: relative;
+        }
+        
+        .custom-tab-content {
+            display: none;
+        }
+        
+        #section1:checked~.custom-tab-contents #contentA,
+        #section2:checked~.custom-tab-contents #contentB,
+        #section3:checked~.custom-tab-contents #contentC,
+        #section4:checked~.custom-tab-contents #contentD {
+            display: block;
+        }
+        
+        .name_icons {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .create_picture_form {
+            display: flex;
+            align-items: center;
+            justify-content: stretch;
+        }
+        
+        .create_picture {
+            margin-left: 20px;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            border: none;
+            font-family: Work Sans;
+            font-weight: 600;
+            font-size: 18px;
+            color: black;
+            outline: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease-in-out;
+        }
+        /* Стили для контейнера с чекбоксами */
+        
+        .form-group .checkboxselectmultiple {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .form-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+            appearance: none;
+            border: 2px solid rgba(162, 89, 255, 1);
+            border-radius: 4px;
+            background-color: white;
+            outline: none;
+        }
+        
+        .form-group input[type="checkbox"]:checked {
+            background: rgba(162, 89, 255, 1);
+            border: none;
+        }
+        
+        .balance_card {
+            width: 350px;
+            height: 210px;
+            border-radius: 15px;
+            padding: 20px;
+            background-size: contain;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .balance_card h3 {
+            max-width: 190px;
+            width: 100%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: black;
+        }
+        
+        .balance_card p {
+            background-color: black;
+            gap: 30px;
+        }
+        
+        .modal {
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s linear 0.3s, opacity 0.3s;
+        }
+        
+        #modal-toggle:checked~.modal {
+            visibility: visible;
+            opacity: 1;
+            transition-delay: 0s;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .close {
+            color: rgba(162, 89, 255, 1);
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: rgba(162, 89, 255, 1);
+        }
+        
+        .balance_input {
+            padding: 10px;
+            font-family: Work Sans;
+            font-weight: 400;
+            font-size: 16px;
+            color: rgba(43, 43, 43, 1);
+        }
+        
+        .header_top_creators {
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgba(59, 59, 59, 1);
+            padding: 12px 20px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        
+        .header_top_creators p {
+            font-family: Space Mono;
+            font-weight: 400;
+            font-size: 16px;
+            color: rgba(133, 133, 132, 1);
+            margin-left: 20px;
+        }
+        
+        .creators_text_left {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .creators_text_right {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            max-width: 730px;
+            width: 100%;
+        }
+        
+        .body_creators {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            background: rgba(59, 59, 59, 1);
+        }
+        
+        .user_avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        
+        .user_list {
+            font-family: Work Sans;
+            font-weight: 600;
+            font-size: 22px;
+            line-height: 140%;
+            letter-spacing: 0%;
+            text-transform: capitalize;
+        }
+        
+        .forloop {
+            font-family: Space Mono;
+            font-weight: 400;
+            font-size: 16px;
+            color: rgba(133, 133, 132, 1);
+            background: rgba(43, 43, 43, 1);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .changes p {
+            font-family: Space Mono;
+            font-weight: 400;
+            font-size: 16px;
+            color: rgba(0, 172, 79, 1);
+        }
+        
+        .count_pictute {
+            font-family: Space Mono;
+            font-weight: 400;
+            font-size: 16px;
+        }
+        
+        .volume {
+            font-family: Space Mono;
+            font-weight: 400;
+            font-size: 16px;
+        }
+        
+        .update_profile {
+            border-radius: 8px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .update_profile h2 {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .update_profile form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .update_profile form label {
+            display: none;
+        }
+        
+        .update_profile form input[type="text"],
+        form input[type="file"],
+        form input[type="email"],
+        form input[type="password"],
+        form textarea {
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+            outline: none;
+            color: black;
+        }
+        
+        .update_profile button[type="submit"] {
+            font-size: 16px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .update_change_button button {
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            padding: 10px 0;
+            gap: 8px;
+        }
+        
+        .page-item {
+            display: inline-block;
+        }
+        
+        .page-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .page-link i {
+            color: #333;
+        }
+        
+        .page-link:hover {
+            background: rgba(162, 89, 255, 1);
+            color: white;
+        }
+        
+        .page-link i:hover {
+            background: rgba(162, 89, 255, 1);
+            color: white;
+        }
+        
+        .page-item.active .page-link {
+            background: rgba(162, 89, 255, 1);
+            color: white;
+            border: none;
+            pointer-events: none;
+        }
+        
+        .page-item:first-child .page-link,
+        .page-item:last-child .page-link {
+            font-size: 18px;
+        }
+        
+        .messages {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            max-width: 400px;
+            text-align: center;
+            z-index: 1000;
+        }
+        
+        .alert {
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            margin-bottom: 10px;
+            animation: fadeOut 5s forwards;
+        }
+        
+        .alert-success {
+            background-color: #28a745;
+        }
+        
+        .alert-danger {
+            background-color: #dc3545;
+        }
+        
+        .alert-info {
+            background-color: #17a2b8;
+        }
+        
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                display: none;
+            }
+        }

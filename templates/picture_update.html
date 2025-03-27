@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}| Create Picture{% endblock title %}
+{% block title %}| Update Picture{% endblock title %}
 
 {% block contents %}
 <section >
@@ -9,7 +9,7 @@
             <img src="{% static 'assets/png/account.png' %}" alt="Account Image" class="account-image"/>
         </div>
         <div class="create_picture">
-            <h2>Create Picture</h2>
+            <h2>Update Picture</h2>
             <form action="{% url 'update_picture' id=picture.id %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 

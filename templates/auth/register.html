@@ -17,13 +17,25 @@
                 {{ form.email }}            
             </div>
             <div class="login-form">
-                <img src="{% static 'assets/svg/password.svg'%}" alt="">
-                {{ form.password1 }}            
+                <img src="{% static 'assets/svg/password.svg' %}" alt="">
+                {{ form.password1 }}
             </div>
+            {% if form.password1.errors %}
+                <div class="error-message">
+                    {{ form.password1.errors.0 }}
+                </div>
+            {% endif %}
+            
             <div class="login-form">
-                <img src="{% static 'assets/svg/password.svg'%}" alt="">
-                {{ form.password2 }}            
+                <img src="{% static 'assets/svg/password.svg' %}" alt="">
+                {{ form.password2 }}
             </div>
+            {% if form.password2.errors %}
+                <div class="error-message">
+                    {{ form.password2.errors.0 }}
+                </div>
+            {% endif %}
+            
             <div>
                 <button type="submit" class="btn_account">Create Account</button>
             </div>

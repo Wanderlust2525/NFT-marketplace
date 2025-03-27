@@ -1,0 +1,107 @@
+{% extends 'base.html' %} {% load static %} {% block title %}| Rankings {% endblock title %}
+{% block contents %}
+
+<section>
+    <div class="container">
+        <div class="browse_marketplace">
+            <h1>Top Creators</h1>
+            <p>Check out top ranking NFT artists on the NFT Marketplace.</p>
+            
+            
+        </div>
+    </div>
+</section>
+
+<section class="section2">
+    <div class="container">
+        <div class="all_marketplace">
+            <div class="created_collection">
+                <div class="custom-tabs">
+                    <!-- Радиокнопки для управления вкладками -->
+                    <input type="radio" id="section1" name="tab-selection" checked>
+                    <input type="radio" id="section2" name="tab-selection">
+                    <input type="radio" id="section3" name="tab-selection">
+                    <input type="radio" id="section4" name="tab-selection">
+            
+                    <!-- Кнопки вкладок -->
+                    <div class="custom-tab-buttons">
+                        <label for="section1" class="custom-tab-btn">Today</label>
+                        <label for="section2" class="custom-tab-btn">This Week</label>
+                        <label for="section3" class="custom-tab-btn">This Month</label>
+                        <label for="section4" class="custom-tab-btn">All Time</label>
+                    </div>
+            
+                    <!-- Содержимое вкладок -->
+                    <div class="custom-tab-contents">
+                        <div class="custom-tab-content" id="contentA">
+                           <div class="header_top_creators">
+                                <div class="creators_text_left">
+                                    <p>#</p>
+                                    <p>Artist</p>
+                                </div>
+                                <div class="creators_text_right">
+                                    <p>Change</p>
+                                    <p>NFTs Sold</p>
+                                    <p>Volume</p>
+                                </div>
+                           </div>
+                           {% for user in users  %}
+                                <div class="body_creators">
+                                    <div class="creators_text_left">
+                                        <div class="forloop">
+                                            <p >{{ forloop.counter }}</p>
+                                        </div>
+                                        <div class="avatar">
+                                            {% if user.avatar %}
+                                                <img src="{{ user.avatar.url }}" alt="Avatar" class="user_avatar">
+                                            {% else %}
+                                                <div class="user_avatar"></div>
+                                            {% endif %}
+                                        </div>
+                                        
+                                        <div class="user_list">
+                                            <p >{{ user }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="creators_text_right">
+                                        <div class="changes">
+                                            <p >+1.41%</p>
+                                        </div>
+                                        
+                                        <div class="count_pictute">
+                                            <p >{{ user.total_products  }}</p>
+                                        </div>
+                                        <div class="volume">
+                                            <p>12.4 ETH</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                           
+                           
+                           
+                        
+                        <div class="custom-tab-content" id="contentB">
+                            <h2>🏛 Collections</h2>
+                            <p>Discover curated NFT Collections.</p>
+                        </div>
+                        <div class="custom-tab-content" id="contentC">
+                            <h2>🏛 Collections</h2>
+                            <p>Discover curated NFT Collections.</p>
+                        </div>
+                        <div class="custom-tab-content" id="contentD">
+                            <h2>🏛 Collections</h2>
+                            <p>Discover curated NFT Collections.</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock contents %}

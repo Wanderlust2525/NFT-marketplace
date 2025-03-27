@@ -1,10 +1,14 @@
     {% extends 'base.html' %} {% load static %} {% block title %}| Artist Page{% endblock title %}
     {% block contents %}
 
+    
+
         <section>
             <div class="profile_bg">
                 <img class="avatar_bg" src="{% static 'assets/png/profile_bg.png' %}" alt="">
+                
             </div>
+   
         </section>
         <section>
             <div class="container">  
@@ -48,28 +52,40 @@
                         <div class="balance_card" style="background: url('{% static "assets/png/visa.png" %}') no-repeat center center / cover; ">
                             <h3>Balance: {{ user.profile.balance }}</h3>
                         </div>
-                        <div class="right_info">                        
-                            <div class="balance_button">
-                                <input type="checkbox" id="modal-toggle" hidden>
-                                <button><label for="modal-toggle" class="modal-button">+ Balance</label></button>                              
-                                                                
-                                <div class="modal">
-                                    <div class="modal-content">
-                                        <form method="POST" action="{% url 'add_balance' %}">
-                                            {% csrf_token %}
-                                            <label for="modal-toggle" class="close">&times;</label>
-                                            <input type="number" class="balance_input" name="amount" placeholder="Enter amount" step="any" required>
-                                            <button type="submit">Add</button>
-                                        </form>
-                            
-                                        
+                        <div class="right_info_button">
+                            <div class="right_info">                        
+                                <div class="balance_button">
+                                    <input type="checkbox" id="modal-toggle" hidden>
+                                    <button><label for="modal-toggle" class="modal-button">+ Balance</label></button>                              
+                                                                    
+                                    <div class="modal">
+                                        <div class="modal-content">
+                                            <form method="POST" action="{% url 'add_balance' %}">
+                                                {% csrf_token %}
+                                                <label for="modal-toggle" class="close">&times;</label>
+                                                <input type="number" class="balance_input" name="amount" placeholder="Enter amount" step="any" required>
+                                                <button type="submit">Add</button>
+                                            </form>
+                                
+                                            
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        
+                            
+                                <div class="create_button">
+                                    <a href="{% url 'create_picture' %}"><button> + Follow</button></a>
+                                </div>
+                        </div>
+                        <div class="update_change_button">
                             <div class="create_button">
-                                <a href="{% url 'create_picture' %}"><button> + Follow</button></a>
+                                <a href="{% url 'change_password' %}"><button> Change Password</button></a>
                             </div>
+                            <div class="balance_button">
+                                <a href="{% url 'avatar' %}"><button> Update profile</button></a>
+                            </div>
+                        </div>
+
+
                         </div>
                     </div>
                 </div>
@@ -139,17 +155,21 @@
                                     </div>       
                                     
                                     </div>
+                                    
                                     {% empty %}
                                     <h3>This owner has no other images.</h3>
                                     {% endfor %}
+                                    
                                 </div>
+                                {% include 'components/pagination.html' %}
                             </div>
+                            
                             <div class="custom-tab-content" id="contentB">
-                                <h2>🏛 Galleries</h2>
+                                <h2>🏛 Owned</h2>
                                 <p>Discover curated NFT galleries.</p>
                             </div>
                             <div class="custom-tab-content" id="contentC">
-                                <h2>🔥 Trending</h2>
+                                <h2>🔥 Collection</h2>
                                 <p>Top trending NFT projects.</p>
                             </div>
                         </div>
